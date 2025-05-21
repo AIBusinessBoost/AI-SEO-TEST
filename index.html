@@ -470,6 +470,33 @@
     </div>
   </header>
 
+  <!-- How Our AI SEO Audit Works: always visible, now in the middle of the page -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How Our <span class="text-gradient">AI SEO Audit</span> Works</h2>
+        <p>Our AI analyzes your website, competitors, and search trends to deliver a custom action plan for higher rankings.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-search"></i></div>
+          <div class="benefit-value">Site Scan</div>
+          <div class="benefit-label">We crawl your site for technical, content, and UX issues.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+          <div class="benefit-value">AI Analysis</div>
+          <div class="benefit-label">Our AI benchmarks you against top competitors and search trends.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-list-check"></i></div>
+          <div class="benefit-value">Action Plan</div>
+          <div class="benefit-label">You get a prioritized checklist for fast SEO wins.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Website Analysis: hidden by default -->
   <section id="audit-results" style="display:none;">
     <div class="container" style="flex-direction:column;align-items:flex-start;">
@@ -510,33 +537,6 @@
     </div>
   </section>
 
-  <!-- How Our AI SEO Works: hidden by default -->
-  <section id="how-it-works" style="display:none;">
-    <div class="container">
-      <div class="section-heading">
-        <h2>How Our <span class="text-gradient">AI SEO</span> Works</h2>
-        <p>Our AI analyzes your website, competitors, and search trends to deliver a custom action plan for higher rankings.</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-search"></i></div>
-          <div class="benefit-value">Site Scan</div>
-          <div class="benefit-label">We crawl your site for technical, content, and UX issues.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-brain"></i></div>
-          <div class="benefit-value">AI Analysis</div>
-          <div class="benefit-label">Our AI benchmarks you against top competitors and search trends.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon"><i class="fas fa-list-check"></i></div>
-          <div class="benefit-value">Action Plan</div>
-          <div class="benefit-label">You get a prioritized checklist for fast SEO wins.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Why Choose Our AI SEO: hidden by default -->
   <section id="benefits" style="display:none;">
     <div class="container">
@@ -563,8 +563,8 @@
     </div>
   </section>
 
-  <!-- Testimonials and Footer always visible -->
-  <section id="testimonials">
+  <!-- Testimonials: hidden by default, appears at the very bottom after analysis -->
+  <section id="testimonials" style="display:none;">
     <div class="container">
       <div class="section-heading">
         <h2>What Our <span class="text-gradient">Clients</span> Say</h2>
@@ -607,10 +607,10 @@
   <script>
     document.getElementById('seoAuditForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Show analysis and next sections
+      // Show analysis, benefits, and testimonials sections
       document.getElementById('audit-results').style.display = 'block';
-      document.getElementById('how-it-works').style.display = 'block';
       document.getElementById('benefits').style.display = 'block';
+      document.getElementById('testimonials').style.display = 'block';
 
       // Simulate analysis
       document.getElementById('websiteScore').textContent = Math.floor(Math.random() * 21) + 80; // 80-100
