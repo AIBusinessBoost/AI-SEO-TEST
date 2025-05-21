@@ -3,40 +3,758 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Boost Business - AI-Powered SEO Audit</title>
+  <title>AI Boost Business – AI-Powered SEO Audit</title>
   <meta name="description" content="Get a free AI-powered SEO audit for your business and discover how to rank higher in Google, Bing & ChatGPT">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      background: #1A2238;
-      color: #fff;
-      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+    :root {
+      --primary: #0ce6e6;
+      --accent: #ffd12a;
+      --bg: #181c2a;
+      --glass: rgba(24,28,42,0.85);
+      --white: #fff;
+      --text: #e6eaf3;
+      --card: rgba(36,44,66,0.85);
+      --border: rgba(255,255,255,0.08);
+    }
+    html, body {
       margin: 0;
       padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #181c2a 0%, #232738 100%);
+      color: var(--text);
       min-height: 100vh;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 60px 20px;
-    }
     nav {
-      background: #161b2c;
-      padding: 0;
-      box-shadow: 0 2px 8px rgba(26,34,56,0.08);
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(33,230,193,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       text-decoration: none;
-      color: #F6C90E;
-      font-size: 1.7rem;
-      font-weight: 700;
-      letter-spacing: 1px;
     }
-    .logo img {
-      height: 48px;
-      width: 48px;
-      object
+    .logo-icon img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(33,230,193,0.10);
+      background: #232738;
+      padding: 2px;
+    }
+    .logo span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    header {
+      padding: 64px 0 32px 0;
+      background: none;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-content {
+      flex: 1 1 340px;
+      min-width: 320px;
+    }
+    .highlight-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #232738;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 1rem;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 12px rgba(33,230,193,0.10);
+    }
+    .hero-content h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin: 0 0 18px 0;
+      color: var(--white);
+      line-height: 1.15;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+    .audit-form {
+      flex: 1 1 340px;
+      min-width: 320px;
+      background: var(--card);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(33,230,193,0.10);
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+      margin-top: 0;
+    }
+    .audit-form h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--accent);
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #232738;
+      color: var(--white);
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-group input:focus {
+      border: 1.5px solid var(--primary);
+    }
+    .cta-button {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #232738;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(246,201,14,0.10);
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(246,201,14,0.18);
+    }
+    section {
+      padding: 64px 0;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-heading h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .metrics-grid, .benefits-grid, .testimonials-grid {
+      display: grid;
+      gap: 32px;
+    }
+    .metrics-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-bottom: 32px;
+    }
+    .metric-card {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(33,230,193,0.08);
+      padding: 28px 0 18px 0;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .metric-card:hover {
+      box-shadow: 0 8px 40px rgba(33,230,193,0.16);
+    }
+    .metric-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .metric-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .metric-label {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .email-capture {
+      background: var(--glass);
+      border-radius: 16px;
+      padding: 24px 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      margin-top: 18px;
+    }
+    .email-form {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+    .email-form input[type="email"] {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #232738;
+      color: var(--white);
+      font-size: 1rem;
+      outline: none;
+      width: 220px;
+    }
+    .email-form input[type="email"]:focus {
+      border: 1.5px solid var(--primary);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .step {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(33,230,193,0.08);
+      padding: 28px 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .step-number {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #232738;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      font-size: 1.2rem;
+    }
+    .step-icon {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .step h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+    .step p {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .benefits-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 32px;
+    }
+    .benefit-card {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(33,230,193,0.08);
+      padding: 28px 18px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+    .benefit-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .benefit-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+    .benefit-card p {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .testimonials-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      margin-top: 32px;
+    }
+    .testimonial {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(33,230,193,0.08);
+      padding: 28px 18px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #232738;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(33,230,193,0.10);
+    }
+    .author-info h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .author-info p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+    #cta {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: #232738;
+      text-align: center;
+      padding: 56px 0;
+    }
+    .cta-container h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cta-container p {
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    .cta-container .cta-button {
+      background: #232738;
+      color: var(--accent);
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(33,230,193,0.10);
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .cta-container .cta-button:hover {
+      background: var(--primary);
+      color: #232738;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(246,201,14,0.18);
+    }
+    footer {
+      background: var(--glass);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 18px 0;
+      color: var(--text);
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+    .footer-column h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    .social-links a {
+      color: var(--primary);
+      margin-right: 14px;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+    .social-links a:hover {
+      color: var(--accent);
+    }
+    .copyright {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #7a7e8a;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container, .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 10px;
+      }
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      .section-heading h2 {
+        font-size: 1.3rem;
+      }
+      .metrics-grid, .benefits-grid, .testimonials-grid, .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .audit-form, .step, .benefit-card, .testimonial {
+        padding: 18px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <img src="logo.png" alt="AI Boost Business Logo">
+        </div>
+        <span>AI Boost Business</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="highlight-badge"><i class="fas fa-bolt"></i> AI-Powered SEO</div>
+          <h1>Get Your Website Ranked Higher in Google, Bing & ChatGPT</h1>
+          <p>Our AI-powered SEO audit reveals exactly how to optimize your website for both traditional and AI search engines.</p>
+        </div>
+        <div class="audit-form">
+          <h2>Get Your Free AI SEO Audit</h2>
+          <form id="seoAuditForm">
+            <div class="form-group">
+              <label for="website">Your Website</label>
+              <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+            </div>
+            <div class="form-group">
+              <label for="businessType">Business Type</label>
+              <input type="text" id="businessType" name="businessType" placeholder="e.g., Law Firm, Restaurant, E-commerce" required>
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" id="location" name="location" placeholder="e.g., Los Angeles, CA" required>
+            </div>
+            <button type="submit" class="cta-button">Analyze My Website</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="audit-results" class="hidden">
+    <div class="container">
+      <div class="results-container">
+        <h2>Your Website Analysis</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="metric-value" id="websiteScore">0</div>
+            <div class="metric-label">Website Score</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-users"></i></div>
+            <div class="metric-value" id="potentialTraffic">0</div>
+            <div class="metric-label">Potential Monthly Visitors</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-trophy"></i></div>
+            <div class="metric-value" id="competitorGap">0%</div>
+            <div class="metric-label">Competitor Gap</div>
+          </div>
+        </div>
+        <div class="email-capture">
+          <h3>Get Your Full Report</h3>
+          <p>Enter your email to receive the complete audit with actionable recommendations:</p>
+          <div class="email-form">
+            <input type="email" id="userEmail" placeholder="your@email.com" required>
+            <button id="sendReportBtn" class="cta-button">Send My Report</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How Our <span class="text-gradient">AI SEO Audit</span> Works</h2>
+        <p>Our advanced AI analyzes your website and provides actionable recommendations to improve your rankings.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fas fa-globe"></i></div>
+          <h3>Enter Your Website</h3>
+          <p>Provide your website URL, business type, and location to begin the analysis.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI Analysis</h3>
+          <p>Our AI engine analyzes your site for both traditional and AI search optimization factors.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Get Your Report</h3>
+          <p>Receive a comprehensive report with actionable recommendations via email.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Implement & Grow</h3>
+          <p>Follow our recommendations to improve your rankings and grow your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why Choose Our <span class="text-gradient">AI SEO Audit</span></h2>
+        <p>Get insights that traditional SEO tools miss with our AI-powered analysis.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI Search Optimization</h3>
+          <p>Optimize for AI-powered search engines like Google SGE, Bing Copilot, and ChatGPT.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Local SEO Focus</h3>
+          <p>Get location-specific recommendations to dominate local search results.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-code"></i></div>
+          <h3>Technical SEO Analysis</h3>
+          <p>Identify and fix technical issues that are holding your website back.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-file-alt"></i></div>
+          <h3>Content Optimization</h3>
+          <p>Learn how to structure your content for both humans and AI systems.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-users"></i></div>
+          <h3>Competitor Analysis</h3>
+          <p>See how you stack up against competitors and what you need to outrank them.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-tasks"></i></div>
+          <h3>Actionable Recommendations</h3>
+          <p>Get clear, prioritized steps to improve your rankings quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What Our <span class="text-gradient">Clients Say</span></h2>
+        <p>Real results from businesses that implemented our AI SEO recommendations.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "The AI SEO audit identified issues our previous agency missed. After implementing the recommendations, our website now appears in ChatGPT responses and our organic traffic has increased by 137%."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">JD</div>
+            <div class="author-info">
+              <h4>James Davidson</h4>
+              <p>CEO, Davidson Law Group</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "As a local restaurant, we were struggling to stand out. The AI SEO audit helped us optimize for local searches, and now we're the top recommendation in both Google Maps and AI responses for 'best Italian restaurant' in our area."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">ML</div>
+            <div class="author-info">
+              <h4>Maria Lombardi</h4>
+              <p>Owner, Bella Cucina</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-text">
+            "The technical recommendations from the AI audit fixed issues we didn't even know existed. Our e-commerce site now loads 3x faster and our conversion rate has improved by 28%."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">RJ</div>
+            <div class="author-info">
+              <h4>Rachel Johnson</h4>
+              <p>Marketing Director, StyleHub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="container">
+      <div class="cta-container">
+        <h2>Ready to Boost Your Rankings?</h2>
+        <p>Get your free AI SEO audit today and start outranking your competitors.</p>
+        <a href="#" class="cta-button" id="scrollToTop">Get My Free Audit</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>AI Boost Business</h3>
+          <p>Helping businesses rank higher through AI-powered SEO and marketing automation.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">AI SEO Audit</a></li>
+            <li><a href="#">Local SEO</a></li>
+            <li><a href="#">Content Optimization</a></li>
+            <li><a href="#">Technical SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">SEO Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" id="privacy-policy-link">Privacy Policy</a></li>
+            <li><a href="#" id="terms-of-service-link">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 AI Boost Business. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
