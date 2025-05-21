@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/api/*', '/admin/*'],
     },
-    sitemap: 'https://your-domain.com/sitemap.xml',
+    sitemap: 'https://projectai-seo-testgit-300570-j4y.vercel.app/sitemap.xml',
   }
 }
