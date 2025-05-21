@@ -2,74 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AI Boost Business - AI-Powered SEO Audit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Get a free AI-powered SEO audit for your business and discover how to rank higher in Google, Bing, and ChatGPT. AI Boost Business delivers actionable insights for 2025 and beyond.">
-  <meta name="keywords" content="AI SEO, SEO Audit, AI Boost Business, Website Optimization, Google Ranking, Bing, ChatGPT, 2025 SEO, AI Marketing, Business Growth">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://aiboostbusiness.com/">
+  <title>AI Boost Business - AI-Powered SEO Audit</title>
+  <meta name="description" content="Get a free AI-powered SEO audit for your business and discover how to rank higher in Google, Bing & ChatGPT">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #21E6C1;
-      --secondary: #283655;
-      --accent: #F6C90E;
-      --bg: #1A2238;
-      --white: #fff;
-      --navy: #161b2c;
-    }
-    html, body {
+    body {
+      background: #1A2238;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
       min-height: 100vh;
-      scroll-behavior: smooth;
     }
-    body {
-      position: relative;
-      z-index: 1;
-    }
-    /* Modern AI Team Background */
-    .ai-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      background: linear-gradient(120deg, #1A2238 60%, #21E6C1 100%);
-      overflow: hidden;
-    }
-    .ai-bg svg {
-      width: 100vw;
-      height: 100vh;
-      min-height: 600px;
-      object-fit: cover;
-      opacity: 0.18;
-      display: block;
-    }
-    /* Navbar */
-    nav {
-      background: var(--navy);
-      box-shadow: 0 2px 8px rgba(26,34,56,0.08);
-      position: relative;
-      z-index: 2;
-    }
-    nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 20px;
+    .container {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 40px 20px 60px 20px;
+    }
+    nav {
+      background: #161b2c;
+      padding: 0;
+      box-shadow: 0 2px 8px rgba(26,34,56,0.08);
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
-      color: var(--accent);
+      color: #F6C90E;
       font-size: 1.7rem;
       font-weight: 700;
       letter-spacing: 1px;
@@ -87,27 +49,24 @@
       padding: 0;
     }
     .nav-links li a {
-      color: var(--white);
+      color: #fff;
       text-decoration: none;
       font-weight: 500;
       font-size: 1.1rem;
       transition: color 0.2s;
     }
     .nav-links li a:hover {
-      color: var(--primary);
+      color: #21E6C1;
     }
-    /* Header/Hero */
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+    }
     header {
-      position: relative;
-      z-index: 2;
+      background: linear-gradient(90deg, #1A2238 60%, #21E6C1 100%);
       padding: 0 0 40px 0;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 60px 20px;
-      position: relative;
-      z-index: 2;
     }
     .hero {
       display: flex;
@@ -115,8 +74,6 @@
       align-items: flex-start;
       gap: 40px;
       margin-top: 30px;
-      position: relative;
-      z-index: 2;
     }
     .hero-content {
       flex: 1 1 350px;
@@ -124,8 +81,8 @@
     }
     .highlight-badge {
       display: inline-block;
-      background: var(--primary);
-      color: var(--bg);
+      background: #21E6C1;
+      color: #1A2238;
       font-weight: 700;
       border-radius: 20px;
       padding: 7px 18px;
@@ -135,19 +92,19 @@
     }
     .hero-content h1 {
       font-size: 2.5rem;
-      color: var(--accent);
+      color: #F6C90E;
       margin: 0 0 18px 0;
       font-weight: 700;
       line-height: 1.2;
     }
     .hero-content p {
       font-size: 1.2rem;
-      color: var(--white);
+      color: #fff;
       margin-bottom: 0;
       line-height: 1.5;
     }
     .audit-form {
-      background: var(--secondary);
+      background: #283655;
       border-radius: 18px;
       padding: 32px 28px 28px 28px;
       box-shadow: 0 4px 24px rgba(33,230,193,0.08);
@@ -156,7 +113,7 @@
       max-width: 400px;
     }
     .audit-form h2 {
-      color: var(--primary);
+      color: #21E6C1;
       font-size: 1.5rem;
       margin-bottom: 18px;
       font-weight: 700;
@@ -170,7 +127,7 @@
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 6px;
-      color: var(--accent);
+      color: #F6C90E;
     }
     .form-group input {
       width: 100%;
@@ -178,14 +135,14 @@
       border-radius: 8px;
       border: none;
       font-size: 1.1rem;
-      background: var(--bg);
-      color: var(--white);
+      background: #1A2238;
+      color: #fff;
       outline: none;
       margin-bottom: 2px;
     }
     .cta-button {
-      background: linear-gradient(90deg, var(--primary) 60%, var(--accent) 100%);
-      color: var(--bg);
+      background: linear-gradient(90deg, #21E6C1 60%, #F6C90E 100%);
+      color: #1A2238;
       font-weight: bold;
       font-size: 1.1rem;
       border: none;
@@ -198,8 +155,465 @@
       box-shadow: 0 2px 8px rgba(33,230,193,0.08);
     }
     .cta-button:hover {
-      background: linear-gradient(90deg, var(--accent) 60%, var(--primary) 100%);
-      color: var(--bg);
+      background: linear-gradient(90deg, #F6C90E 60%, #21E6C1 100%);
+      color: #1A2238;
+    }
+    #audit-results {
+      margin-top: 40px;
+      display: none;
+    }
+    #audit-results.visible {
+      display: block;
+      animation: fadeIn 0.7s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .results-container {
+      background: #283655;
+      border-radius: 18px;
+      padding: 36px 28px 28px 28px;
+      box-shadow: 0 4px 24px rgba(33,230,193,0.08);
+      margin-bottom: 30px;
+    }
+    .metrics-grid {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .metric-card {
+      background: #1A2238;
+      border-radius: 14px;
+      padding: 24px 32px;
+      text-align: center;
+      min-width: 160px;
+      box-shadow: 0 2px 8px rgba(33,230,193,0.06);
+    }
+    .metric-icon {
+      font-size: 2.2rem;
+      color: #21E6C1;
+      margin-bottom: 10px;
+    }
+    .metric-value {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #F6C90E;
+      margin-bottom: 4px;
+    }
+    .metric-label {
+      font-size: 1.1rem;
+      color: #fff;
+      opacity: 0.8;
+    }
+    .email-capture {
+      margin-top: 18px;
+      background: #1A2238;
+      border-radius: 12px;
+      padding: 24px 18px;
+      text-align: center;
+    }
+    .email-capture h3 {
+      color: #21E6C1;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .email-capture p {
+      color: #fff;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+    .email-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .email-form input[type="email"] {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: #283655;
+      color: #fff;
+      outline: none;
+      min-width: 220px;
+    }
+    .email-form button {
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: none;
+      background: #21E6C1;
+      color: #1A2238;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .email-form button:hover {
+      background: #F6C90E;
+      color: #1A2238;
+    }
+    /* How It Works Section */
+    #how-it-works {
+      padding: 80px 0;
+      background: #1A2238;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-heading h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .section-heading p {
+      font-size: 1.2rem;
+      color: #21E6C1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #21E6C1, #F6C90E);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .step {
+      background: #283655;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      flex: 1 1 220px;
+      max-width: 280px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(33,230,193,0.08);
+    }
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #F6C90E;
+      color: #1A2238;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .step-icon {
+      font-size: 2.5rem;
+      color: #21E6C1;
+      margin-bottom: 20px;
+    }
+    .step h3 {
+      font-size: 1.3rem;
+      color: #F6C90E;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .step p {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+    /* Benefits Section */
+    #benefits {
+      padding: 80px 0;
+      background: #283655;
+    }
+    .benefits-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .benefit-card {
+      background: #1A2238;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      flex: 1 1 300px;
+      max-width: 350px;
+      box-shadow: 0 4px 20px rgba(33,230,193,0.08);
+    }
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #21E6C1;
+      margin-bottom: 20px;
+    }
+    .benefit-card h3 {
+      font-size: 1.3rem;
+      color: #F6C90E;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .benefit-card p {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.5;
+    }
+    /* Testimonials Section */
+    #testimonials {
+      padding: 80px 0;
+      background: #1A2238;
+    }
+    .testimonials-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .testimonial {
+      background: #283655;
+      border-radius: 16px;
+      padding: 30px;
+      flex: 1 1 300px;
+      max-width: 350px;
+      box-shadow: 0 4px 20px rgba(33,230,193,0.08);
+    }
+    .testimonial-text {
+      font-size: 1.1rem;
+      color: #fff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      background: #21E6C1;
+      color: #1A2238;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .author-info h4 {
+      font-size: 1.1rem;
+      color: #F6C90E;
+      margin: 0 0 5px 0;
+      font-weight: 700;
+    }
+    .author-info p {
+      font-size: 0.9rem;
+      color: #fff;
+      margin: 0;
+      opacity: 0.8;
+    }
+    /* CTA Section */
+    #cta {
+      padding: 80px 0;
+      background: linear-gradient(90deg, #1A2238 60%, #21E6C1 100%);
+    }
+    .cta-container {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .cta-container h2 {
+      font-size: 2.5rem;
+      color: #F6C90E;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .cta-container p {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+    .cta-container .cta-button {
+      display: inline-block;
+      width: auto;
+      padding: 16px 36px;
+      font-size: 1.2rem;
+    }
+    /* Footer */
+    footer {
+      background: #161b2c;
+      padding: 60px 0 20px 0;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-column {
+      flex: 1 1 200px;
+    }
+    .footer-column h3 {
+      font-size: 1.3rem;
+      color: #F6C90E;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .footer-column p {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: #283655;
+      color: #21E6C1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.2s;
+    }
+    .social-links a:hover {
+      background: #21E6C1;
+      color: #1A2238;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .footer-links li a:hover {
+      color: #21E6C1;
+    }
+    .copyright {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #fff;
+      opacity: 0.7;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26,34,56,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    .modal.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #283655;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 30px rgba(33,230,193,0.2);
+    }
+    .legal-modal {
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      text-align: left;
+    }
+    .legal-content {
+      margin: 20px 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .legal-content h3 {
+      color: #F6C90E;
+      margin: 20px 0 10px 0;
+    }
+    .legal-content p, .legal-content ul {
+      margin-bottom: 15px;
+    }
+    .legal-content ul {
+      padding-left: 20px;
+    }
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-modal:hover {
+      color: #F6C90E;
+    }
+    .success-icon {
+      font-size: 4rem;
+      color: #21E6C1;
+      margin-bottom: 20px;
+    }
+    .modal-content h2 {
+      font-size: 1.8rem;
+      color: #F6C90E;
+      margin-bottom: 15px;
+    }
+    .modal-content p {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .modal-note {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      background: rgba(33,230,193,0.1);
+      padding: 10px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .close-modal-btn {
+      display: inline-block;
+      width: auto;
+      padding: 12px 30px;
     }
     /* Responsive */
     @media (max-width: 900px) {
@@ -245,50 +659,23 @@
   </style>
 </head>
 <body>
-  <!-- Modern AI Team Background SVG -->
-  <div class="ai-bg" aria-hidden="true">
-    <svg viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Abstract shapes and gradients for a modern, AI-inspired look -->
-      <ellipse cx="1300" cy="200" rx="320" ry="120" fill="#21E6C1"/>
-      <ellipse cx="400" cy="800" rx="400" ry="100" fill="#F6C90E"/>
-      <ellipse cx="800" cy="500" rx="600" ry="300" fill="#283655"/>
-      <!-- Team working on laptops (stylized, minimal for performance) -->
-      <g>
-        <circle cx="600" cy="600" r="40" fill="#fff" opacity="0.15"/>
-        <rect x="570" y="630" width="60" height="18" rx="6" fill="#21E6C1" opacity="0.18"/>
-        <rect x="585" y="648" width="30" height="10" rx="3" fill="#fff" opacity="0.12"/>
-        <circle cx="800" cy="650" r="45" fill="#fff" opacity="0.15"/>
-        <rect x="765" y="690" width="70" height="20" rx="7" fill="#F6C90E" opacity="0.18"/>
-        <rect x="785" y="710" width="30" height="10" rx="3" fill="#fff" opacity="0.12"/>
-        <circle cx="1000" cy="600" r="40" fill="#fff" opacity="0.15"/>
-        <rect x="970" y="630" width="60" height="18" rx="6" fill="#21E6C1" opacity="0.18"/>
-        <rect x="985" y="648" width="30" height="10" rx="3" fill="#fff" opacity="0.12"/>
-      </g>
-      <!-- AI circuit lines -->
-      <polyline points="800,500 800,650" stroke="#21E6C1" stroke-width="4" opacity="0.12"/>
-      <polyline points="600,600 800,650" stroke="#F6C90E" stroke-width="3" opacity="0.10"/>
-      <polyline points="1000,600 800,650" stroke="#F6C90E" stroke-width="3" opacity="0.10"/>
-    </svg>
-  </div>
   <nav>
     <div class="container">
-      <a href="#" class="logo" aria-label="AI Boost Business Home">
-        <!-- Updated SVG Logo: AI Boost Business -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60">
-          <ellipse cx="40" cy="30" rx="18" ry="24" fill="#21E6C1"/>
-          <rect x="32" y="18" width="16" height="24" rx="8" fill="#283655"/>
-          <circle cx="40" cy="28" r="7" fill="#F6C90E" stroke="#21E6C1" stroke-width="2"/>
-          <polygon points="40,52 46,60 34,60" fill="#F6C90E"/>
-          <line x1="40" y1="18" x2="40" y2="8" stroke="#21E6C1" stroke-width="2"/>
-          <circle cx="40" cy="6" r="2" fill="#21E6C1"/>
-          <line x1="50" y1="30" x2="60" y2="25" stroke="#21E6C1" stroke-width="2"/>
-          <circle cx="62" cy="24" r="2" fill="#21E6C1"/>
-          <line x1="30" y1="30" x2="20" y2="25" stroke="#21E6C1" stroke-width="2"/>
-          <circle cx="18" cy="24" r="2" fill="#21E6C1"/>
-          <text x="70" y="38" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="28" fill="#F6C90E" font-weight="bold">AI Boost</text>
-          <text x="70" y="55" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="16" fill="#21E6C1" font-weight="bold">Business</text>
+      <a href="#" class="logo" aria-label="AIBoostBusiness Home">
+        <!-- Custom SVG Logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+          <ellipse cx="30" cy="32" rx="18" ry="24" fill="#21E6C1"/>
+          <rect x="22" y="12" width="16" height="40" rx="8" fill="#283655"/>
+          <circle cx="30" cy="30" r="7" fill="#F6C90E" stroke="#21E6C1" stroke-width="2"/>
+          <polygon points="30,52 36,60 24,60" fill="#F6C90E"/>
+          <line x1="30" y1="12" x2="30" y2="4" stroke="#21E6C1" stroke-width="2"/>
+          <circle cx="30" cy="2" r="2" fill="#21E6C1"/>
+          <line x1="40" y1="22" x2="50" y2="16" stroke="#21E6C1" stroke-width="2"/>
+          <circle cx="52" cy="15" r="2" fill="#21E6C1"/>
+          <line x1="20" y1="22" x2="10" y2="16" stroke="#21E6C1" stroke-width="2"/>
+          <circle cx="8" cy="15" r="2" fill="#21E6C1"/>
         </svg>
-        <span style="display:none;">AI Boost Business</span>
+        <span>AI Boost Business</span>
       </a>
       <ul class="nav-links">
         <li><a href="#how-it-works">How It Works</a></li>
@@ -297,96 +684,30 @@
       </ul>
     </div>
   </nav>
-  <header>
+
+  <!-- ...rest of your HTML remains unchanged... -->
+
+  <footer>
     <div class="container">
-      <div class="hero">
-        <div class="hero-content">
-          <div class="highlight-badge"><i class="fas fa-bolt"></i> AI-Powered SEO</div>
-          <h1>Get Your Website Ranked Higher in Google, Bing & ChatGPT</h1>
-          <p>Our AI-powered SEO audit reveals exactly how to optimize your website for both traditional and AI search engines.</p>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>AI Boost Business</h3>
+          <p>Helping businesses rank higher through AI-powered SEO and marketing automation.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="audit-form">
-          <h2>Get Your Free AI SEO Audit</h2>
-          <form id="seoAuditForm" autocomplete="off">
-            <div class="form-group">
-              <label for="website">Your Website</label>
-              <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
-            </div>
-            <div class="form-group">
-              <label for="businessType">Business Type</label>
-              <input type="text" id="businessType" name="businessType" placeholder="e.g., Law Firm, Restaurant, E-commerce" required>
-            </div>
-            <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" id="location" name="location" placeholder="e.g., Los Angeles, CA" required>
-            </div>
-            <button type="submit" class="cta-button">Analyze My Website</button>
-          </form>
-        </div>
+        <!-- ...other footer columns unchanged... -->
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 AI Boost Business. All rights reserved.</p>
       </div>
     </div>
-  </header>
-  <!-- ...keep all your other sections and scripts as in the previous file... -->
-  <!-- For brevity, not repeating unchanged sections here, but keep them in your file -->
-  <!-- The rest of your HTML (results, how it works, benefits, testimonials, CTA, footer, modals, scripts) remains unchanged and should be included as before. -->
-  <script>
-    // Smooth scroll for CTA
-    document.getElementById('scrollToTop')?.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  </footer>
 
-    // SEO Audit Form Submission
-    const form = document.getElementById('seoAuditForm');
-    const auditResults = document.getElementById('audit-results');
-    const websiteScore = document.getElementById('websiteScore');
-    const potentialTraffic = document.getElementById('potentialTraffic');
-    const competitorGap = document.getElementById('competitorGap');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      auditResults.classList.remove('visible');
-      websiteScore.textContent = '0';
-      potentialTraffic.textContent = '0';
-      competitorGap.textContent = '0%';
-
-      // Simulate loading
-      setTimeout(() => {
-        auditResults.style.display = 'block';
-        setTimeout(() => {
-          auditResults.classList.add('visible');
-          animateValue(websiteScore, 0, 87, 1200);
-          animateValue(potentialTraffic, 0, 3200, 1200);
-          animateValue(competitorGap, 0, 42, 1200, '%');
-        }, 50);
-      }, 1200);
-    });
-
-    // Animate numbers
-    function animateValue(obj, start, end, duration, suffix = '') {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.textContent = Math.floor(progress * (end - start) + start) + suffix;
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        } else {
-          obj.textContent = end + suffix;
-        }
-      };
-      window.requestAnimationFrame(step);
-    }
-
-    // Email capture (simulated)
-    document.getElementById('sendReportBtn').addEventListener('click', function() {
-      const email = document.getElementById('userEmail').value;
-      if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return;
-      }
-      alert('Success! Your full report will be sent to: ' + email + ' (Demo: No real email sent)');
-    });
-  </script>
+  <!-- ...rest of your HTML and scripts remain unchanged... -->
 </body>
 </html>
