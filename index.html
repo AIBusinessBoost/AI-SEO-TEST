@@ -1,203 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Boost Business – AI-Powered SEO Audit</title>
-  <meta name="description" content="Get a free AI-powered SEO audit for your business and discover how to rank higher in Google, Bing & ChatGPT">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #0ce6e6;
-      --accent: #ffd12a;
-      --bg: #181c2a;
-      --glass: rgba(24,28,42,0.85);
-      --white: #fff;
-      --text: #e6eaf3;
-      --card: rgba(36,44,66,0.85);
-      --border: rgba(255,255,255,0.08);
-      --metric-bg: #202432;
-      --metric-shadow: 0 4px 32px rgba(33,230,193,0.08);
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', 'Montserrat', Arial, sans-serif;
-      background: linear-gradient(135deg, #181c2a 0%, #232738 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-    nav {
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(33,230,193,0.04);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-    .logo-svg {
-      height: 40px;
-      width: 40px;
-      display: block;
-      border-radius: 8px;
-      background: #232738;
-      box-shadow: 0 2px 8px rgba(33,230,193,0.10);
-      object-fit: contain;
-    }
-    .logo span {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 32px;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    header {
-      padding: 64px 0 32px 0;
-      background: none;
-    }
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 48px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .hero-content {
-      flex: 1 1 340px;
-      min-width: 320px;
-    }
-    .highlight-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: #232738;
-      font-weight: 700;
-      border-radius: 999px;
-      padding: 6px 18px;
-      font-size: 1rem;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 12px rgba(33,230,193,0.10);
-    }
-    .hero-content h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin: 0 0 18px 0;
-      color: var(--white);
-      line-height: 1.15;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      color: var(--text);
-      margin-bottom: 0;
-    }
-    .audit-form {
-      flex: 1 1 340px;
-      min-width: 320px;
-      background: var(--card);
-      border-radius: 22px;
-      box-shadow: 0 8px 32px rgba(33,230,193,0.10);
-      padding: 32px 28px;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(6px);
-      margin-top: 0;
-    }
-    .audit-form h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-      color: var(--accent);
-    }
-    .form-group {
-      margin-bottom: 18px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      color: var(--primary);
-    }
-    .form-group input {
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #232738;
-      color: var(--white);
-      font-size: 1rem;
-      outline: none;
-      transition: border 0.2s;
-    }
-    .form-group input:focus {
-      border: 1.5px solid var(--primary);
-    }
-    .cta-button {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: #232738;
-      font-weight: 700;
-      border: none;
-      border-radius: 999px;
-      padding: 12px 32px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 4px 24px rgba(246,201,14,0.10);
-      transition: transform 0.15s, box-shadow 0.15s;
-      margin-top: 8px;
-      display: inline-block;
-    }
-    .cta-button:hover {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 6px 24px rgba(246,201,14,0.18);
-    }
-    section {
-      padding: 64px 0;
-    }
-    .section-heading {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .section-heading h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--white);
-    }
-    .text-gradient {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -346,6 +147,163 @@
         padding: 24px 8px 16px 8px;
       }
     }
+
+    /* --- benefits section --- */
+    .benefits-grid {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .benefit-card {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: var(--metric-shadow);
+      padding: 32px 38px 24px 38px;
+      text-align: center;
+      border: 1px solid var(--border);
+      min-width: 220px;
+      flex: 1 1 220px;
+      max-width: 300px;
+      transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .benefit-card:hover {
+      box-shadow: 0 8px 40px rgba(33,230,193,0.16);
+    }
+
+    .benefit-icon {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+    }
+
+    .benefit-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .benefit-label {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin-top: 6px;
+    }
+
+    /* --- testimonials section --- */
+    .testimonials-grid {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .testimonial {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: var(--metric-shadow);
+      padding: 32px 38px 24px 38px;
+      text-align: center;
+      border: 1px solid var(--border);
+      min-width: 220px;
+      flex: 1 1 220px;
+      max-width: 400px;
+      transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .testimonial:hover {
+      box-shadow: 0 8px 40px rgba(33,230,193,0.16);
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .testimonial-author {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    /* --- footer section --- */
+    footer {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 24px rgba(33,230,193,0.04);
+      padding: 32px 0;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .footer-logo-svg {
+      height: 40px;
+      width: 40px;
+      display: block;
+      border-radius: 8px;
+      background: #232738;
+      box-shadow: 0 2px 8px rgba(33,230,193,0.10);
+      object-fit: contain;
+    }
+
+    .footer-logo span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -442,7 +400,80 @@
     </div>
   </section>
 
-  <!-- The rest of your sections (How it works, Benefits, Testimonials, CTA, Footer) would go here, unchanged from previous versions. -->
+  <!-- Benefits Section -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <h2><span class="text-gradient">Benefits</span> of AI-Powered SEO</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="benefit-value">Faster Results</div>
+          <div class="benefit-label">AI identifies opportunities quicker than traditional methods.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="benefit-value">Smarter Insights</div>
+          <div class="benefit-label">Uncover hidden SEO opportunities with AI-driven analysis.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="benefit-value">Improved Rankings</div>
+          <div class="benefit-label">Optimize your site to rank higher in search engine results.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What Our <span class="text-gradient">Clients</span> Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p class="testimonial-text">"AI Boost Business helped us increase our website traffic by 50% in just three months. Highly recommended!"</p>
+          <p class="testimonial-author">- John Doe, CEO</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">"The AI-powered SEO audit provided actionable insights that we could implement immediately. A game-changer for our business."</p>
+          <p class="testimonial-author">- Jane Smith, Marketing Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <a href="#" class="footer-logo">
+        <!-- Inline SVG logo for perfect rendering and no broken image -->
+        <svg class="footer-logo-svg" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="22" fill="#232738" stroke="#0ce6e6" stroke-width="4"/>
+          <ellipse cx="24" cy="24" rx="10" ry="16" fill="none" stroke="#0ce6e6" stroke-width="3"/>
+          <circle cx="24" cy="24" r="5" fill="#ffd12a"/>
+          <rect x="22" y="4" width="4" height="8" rx="2" fill="#0ce6e6"/>
+          <rect x="22" y="36" width="4" height="8" rx="2" fill="#0ce6e6"/>
+          <rect x="4" y="22" width="8" height="4" rx="2" fill="#0ce6e6"/>
+          <rect x="36" y="22" width="8" height="4" rx="2" fill="#0ce6e6"/>
+        </svg>
+        <span>AI Boost Business</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
 
   <script>
     // Analyze My Website button logic
