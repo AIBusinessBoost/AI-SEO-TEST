@@ -203,16 +203,15 @@
       background-clip: text;
       text-fill-color: transparent;
     }
-    /* Metrics Section */
-    .metrics-grid {
+    .metrics-grid, .benefits-grid, .testimonials-grid {
       display: flex;
       gap: 32px;
       margin-bottom: 32px;
       justify-content: flex-start;
       flex-wrap: wrap;
     }
-    .metric-card {
-      background: var(--metric-bg);
+    .metric-card, .benefit-card, .testimonial {
+      background: var(--card);
       border-radius: 18px;
       box-shadow: var(--metric-shadow);
       padding: 32px 38px 24px 38px;
@@ -226,10 +225,10 @@
       flex-direction: column;
       align-items: center;
     }
-    .metric-card:hover {
+    .metric-card:hover, .benefit-card:hover, .testimonial:hover {
       box-shadow: 0 8px 40px rgba(33,230,193,0.16);
     }
-    .metric-icon {
+    .metric-icon, .benefit-icon {
       font-size: 2.2rem;
       color: var(--primary);
       margin-bottom: 10px;
@@ -244,9 +243,26 @@
       color: var(--accent);
       margin-bottom: 4px;
     }
-    .metric-label {
+    .metric-label, .benefit-label {
       font-size: 1.08rem;
       color: var(--text);
+      margin-top: 6px;
+    }
+    .benefit-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .testimonial-author {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
       margin-top: 6px;
     }
     .email-capture {
@@ -308,90 +324,6 @@
       transform: translateY(-2px) scale(1.03);
       box-shadow: 0 6px 24px rgba(246,201,14,0.18);
     }
-    /* Benefits Section */
-    .benefits-grid {
-      display: flex;
-      gap: 32px;
-      margin-bottom: 32px;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-    .benefit-card {
-      background: var(--card);
-      border-radius: 18px;
-      box-shadow: var(--metric-shadow);
-      padding: 32px 38px 24px 38px;
-      text-align: center;
-      border: 1px solid var(--border);
-      min-width: 220px;
-      flex: 1 1 220px;
-      max-width: 300px;
-      transition: box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .benefit-card:hover {
-      box-shadow: 0 8px 40px rgba(33,230,193,0.16);
-    }
-    .benefit-icon {
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 38px;
-    }
-    .benefit-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .benefit-label {
-      font-size: 1.08rem;
-      color: var(--text);
-      margin-top: 6px;
-    }
-    /* Testimonials Section */
-    .testimonials-grid {
-      display: flex;
-      gap: 32px;
-      margin-bottom: 32px;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-    .testimonial {
-      background: var(--card);
-      border-radius: 18px;
-      box-shadow: var(--metric-shadow);
-      padding: 32px 38px 24px 38px;
-      text-align: center;
-      border: 1px solid var(--border);
-      min-width: 220px;
-      flex: 1 1 220px;
-      max-width: 400px;
-      transition: box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .testimonial:hover {
-      box-shadow: 0 8px 40px rgba(33,230,193,0.16);
-    }
-    .testimonial-text {
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .testimonial-author {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 6px;
-    }
-    /* Footer Section */
     footer {
       background: var(--glass);
       backdrop-filter: blur(12px);
@@ -538,7 +470,8 @@
     </div>
   </header>
 
-  <section id="audit-results">
+  <!-- Website Analysis: hidden by default -->
+  <section id="audit-results" style="display:none;">
     <div class="container" style="flex-direction:column;align-items:flex-start;">
       <div class="results-container" style="width:100%;">
         <h2 style="color:#fff;">Your Website Analysis</h2>
@@ -577,30 +510,52 @@
     </div>
   </section>
 
-  <section id="benefits">
+  <!-- How Our AI SEO Works: hidden by default -->
+  <section id="how-it-works" style="display:none;">
     <div class="container">
       <div class="section-heading">
-        <h2><span class="text-gradient">Benefits</span> of AI-Powered SEO</h2>
+        <h2>How Our <span class="text-gradient">AI SEO</span> Works</h2>
+        <p>Our AI analyzes your website, competitors, and search trends to deliver a custom action plan for higher rankings.</p>
       </div>
       <div class="benefits-grid">
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
+          <div class="benefit-icon"><i class="fas fa-search"></i></div>
+          <div class="benefit-value">Site Scan</div>
+          <div class="benefit-label">We crawl your site for technical, content, and UX issues.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+          <div class="benefit-value">AI Analysis</div>
+          <div class="benefit-label">Our AI benchmarks you against top competitors and search trends.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-list-check"></i></div>
+          <div class="benefit-value">Action Plan</div>
+          <div class="benefit-label">You get a prioritized checklist for fast SEO wins.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Our AI SEO: hidden by default -->
+  <section id="benefits" style="display:none;">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Why Choose <span class="text-gradient">Our AI SEO</span>?</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
           <div class="benefit-value">Faster Results</div>
           <div class="benefit-label">AI identifies opportunities quicker than traditional methods.</div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-lightbulb"></i>
-          </div>
+          <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
           <div class="benefit-value">Smarter Insights</div>
           <div class="benefit-label">Uncover hidden SEO opportunities with AI-driven analysis.</div>
         </div>
         <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
+          <div class="benefit-icon"><i class="fas fa-chart-bar"></i></div>
           <div class="benefit-value">Improved Rankings</div>
           <div class="benefit-label">Optimize your site to rank higher in search engine results.</div>
         </div>
@@ -608,6 +563,7 @@
     </div>
   </section>
 
+  <!-- Testimonials and Footer always visible -->
   <section id="testimonials">
     <div class="container">
       <div class="section-heading">
@@ -651,9 +607,17 @@
   <script>
     document.getElementById('seoAuditForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      // Show analysis and next sections
+      document.getElementById('audit-results').style.display = 'block';
+      document.getElementById('how-it-works').style.display = 'block';
+      document.getElementById('benefits').style.display = 'block';
+
+      // Simulate analysis
       document.getElementById('websiteScore').textContent = Math.floor(Math.random() * 21) + 80; // 80-100
       document.getElementById('potentialTraffic').textContent = (Math.floor(Math.random() * 9000) + 1000).toLocaleString();
       document.getElementById('competitorGap').textContent = (Math.floor(Math.random() * 41) + 10) + "%";
+
+      // Scroll to results
       document.getElementById('audit-results').scrollIntoView({ behavior: 'smooth' });
     });
   </script>
