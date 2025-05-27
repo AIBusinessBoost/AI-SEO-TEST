@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import EmailReportForm from '../components/EmailReportForm';
 
 export default function Home() {
   return (
@@ -28,6 +29,29 @@ export default function Home() {
           <p>24/7 support from our AI specialists</p>
         </div>
       </div>
+      
+      <div className="website-analysis">
+        <h2>Your Website Analysis</h2>
+        <div className="metrics">
+          <div className="metric">
+            <div className="metric-icon">📈</div>
+            <div className="metric-value">96</div>
+            <div className="metric-label">Website Score</div>
+          </div>
+          <div className="metric">
+            <div className="metric-icon">👥</div>
+            <div className="metric-value">2,107</div>
+            <div className="metric-label">Potential Monthly Visitors</div>
+          </div>
+          <div className="metric">
+            <div className="metric-icon">🏆</div>
+            <div className="metric-value">26%</div>
+            <div className="metric-label">Competitor Gap</div>
+          </div>
+        </div>
+      </div>
+      
+      <EmailReportForm />
     </>
   );
 }
