@@ -42,26 +42,29 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-          <nav className="bg-white shadow-sm">
+          <nav className="bg-gray-900 text-white shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between h-16">
                 <div className="flex items-center">
                   <Link href="/" className="flex items-center">
-                    <span className="text-xl font-bold text-blue-600">AI Boost Business</span>
+                    <span className="text-xl font-bold text-white">AI Boost Business</span>
                   </Link>
                 </div>
                 <div className="hidden md:flex items-center space-x-8">
-                  <Link href="/" className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                  <Link href="/" className="text-white hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">
                     Home
                   </Link>
-                  <Link href="/about" className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
-                    About
+                  <Link href="#how-it-works" className="text-white hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">
+                    How It Works
                   </Link>
-                  <Link href="/contact" className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
-                    Contact
+                  <Link href="#benefits" className="text-white hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">
+                    Benefits
                   </Link>
-                  <Link href="/contact" className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium">
-                    Get Started
+                  <Link href="#testimonials" className="text-white hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">
+                    Testimonials
+                  </Link>
+                  <Link href="/login" className="text-white hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">
+                    Sign Up/Log In
                   </Link>
                 </div>
                 <div className="md:hidden flex items-center">

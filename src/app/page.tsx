@@ -220,7 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials and Login Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -228,56 +228,106 @@ export default function Home() {
             <p className="mt-4 text-xl text-gray-600">Success stories from businesses we've helped transform</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Testimonials - Takes 2/3 of the space on desktop */}
+            <div className="lg:w-2/3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
+                  <div className="flex items-center mb-4">
+                    <div className="text-yellow-400 flex">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <blockquote className="text-gray-600 mb-4">
+                    "Implementing AI solutions from AI Boost Business has transformed our customer service operations. We've seen a 40% reduction in response times and significantly improved customer satisfaction."
+                  </blockquote>
+                  <div className="font-medium text-gray-900">Sarah Johnson</div>
+                  <div className="text-gray-500 text-sm">CTO, TechSolutions Inc.</div>
+                </div>
+                
+                <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
+                  <div className="flex items-center mb-4">
+                    <div className="text-yellow-400 flex">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <blockquote className="text-gray-600 mb-4">
+                    "The data analytics platform developed by AI Boost Business has given us insights we never thought possible. We've been able to identify new market opportunities and optimize our product offerings."
+                  </blockquote>
+                  <div className="font-medium text-gray-900">Michael Chen</div>
+                  <div className="text-gray-500 text-sm">Marketing Director, Global Retail</div>
+                </div>
+                
+                <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 md:col-span-2">
+                  <div className="flex items-center mb-4">
+                    <div className="text-yellow-400 flex">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <blockquote className="text-gray-600 mb-4">
+                    "Process automation implemented by AI Boost Business has reduced our operational costs by 35% and eliminated human error in critical workflows. The ROI has been exceptional."
+                  </blockquote>
+                  <div className="font-medium text-gray-900">Emily Rodriguez</div>
+                  <div className="text-gray-500 text-sm">Operations Manager, FinServe Group</div>
                 </div>
               </div>
-              <blockquote className="text-gray-600 mb-4">
-                "Implementing AI solutions from AI Boost Business has transformed our customer service operations. We've seen a 40% reduction in response times and significantly improved customer satisfaction."
-              </blockquote>
-              <div className="font-medium text-gray-900">Sarah Johnson</div>
-              <div className="text-gray-500 text-sm">CTO, TechSolutions Inc.</div>
             </div>
             
-            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+            {/* Login/Signup Section - Takes 1/3 of the space on desktop */}
+            <div className="lg:w-1/3 bg-purple-700 rounded-lg p-8 text-white">
+              <div className="mb-6 text-center">
+                <h3 className="text-2xl font-bold mb-2">Join Our Community</h3>
+                <p className="text-purple-200">Sign in to access exclusive AI resources and tools</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className="w-full px-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-purple-400 text-gray-900"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-purple-200 mb-1">Password</label>
+                  <input 
+                    type="password" 
+                    id="password" 
+                    className="w-full px-4 py-2 rounded-md border-0 focus:ring-2 focus:ring-purple-400 text-gray-900"
+                    placeholder="••••••••"
+                  />
+                </div>
+                <div>
+                  <button className="w-full bg-white text-purple-700 font-medium px-4 py-2 rounded-md hover:bg-purple-100 transition">
+                    Sign In
+                  </button>
+                </div>
+                <div className="text-center pt-2">
+                  <span className="text-purple-200 text-sm">Don't have an account?</span>
+                  <button className="text-white text-sm font-medium ml-1 hover:underline">
+                    Sign Up
+                  </button>
+                </div>
+                <div className="text-center pt-2">
+                  <button className="text-purple-200 text-sm hover:text-white">
+                    Forgot password?
+                  </button>
                 </div>
               </div>
-              <blockquote className="text-gray-600 mb-4">
-                "The data analytics platform developed by AI Boost Business has given us insights we never thought possible. We've been able to identify new market opportunities and optimize our product offerings."
-              </blockquote>
-              <div className="font-medium text-gray-900">Michael Chen</div>
-              <div className="text-gray-500 text-sm">Marketing Director, Global Retail</div>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                <div className="text-yellow-400 flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <blockquote className="text-gray-600 mb-4">
-                "Process automation implemented by AI Boost Business has reduced our operational costs by 35% and eliminated human error in critical workflows. The ROI has been exceptional."
-              </blockquote>
-              <div className="font-medium text-gray-900">Emily Rodriguez</div>
-              <div className="text-gray-500 text-sm">Operations Manager, FinServe Group</div>
             </div>
           </div>
         </div>
