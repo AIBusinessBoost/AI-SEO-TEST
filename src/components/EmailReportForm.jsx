@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/EmailReportForm.css';
+import { supabase } from '../lib/supabase';
 
 export default function EmailReportForm() {
   const [firstName, setFirstName] = useState('');
@@ -25,11 +26,16 @@ export default function EmailReportForm() {
     setSubmitStatus(null);
     
     try {
-      // In a real application, you would call your backend API here
-      // This is a simulated API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Insert the report request into Supabase
+      const { data, error } = await supabase
+        .from('report_requests')
+        .insert([
+          { first_name: firstName, email, status: 'pending' }
+        ]);
       
-      // Simulate successful submission
+      if (error) throw error;
+      
+      // Success
       setSubmitStatus({ 
         success: true, 
         message: `Success! Your report has been sent to ${firstName} at ${email}` 
@@ -37,6 +43,7 @@ export default function EmailReportForm() {
       setFirstName('');
       setEmail('');
     } catch (error) {
+      console.error('Error submitting report request:', error);
       setSubmitStatus({ 
         success: false, 
         message: 'Failed to send report. Please try again.' 

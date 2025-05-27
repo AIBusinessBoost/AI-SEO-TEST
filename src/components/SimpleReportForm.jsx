@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/SimpleReportForm.css';
+import { supabase } from '../lib/supabase';
 
 export default function SimpleReportForm() {
   const [email, setEmail] = useState('');
@@ -21,8 +22,14 @@ export default function SimpleReportForm() {
     setError('');
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Insert the report request into Supabase
+      const { data, error: supabaseError } = await supabase
+        .from('report_requests')
+        .insert([
+          { first_name: firstName || null, email, status: 'pending' }
+        ]);
+      
+      if (supabaseError) throw supabaseError;
       
       // Success
       setIsSuccess(true);
@@ -34,6 +41,7 @@ export default function SimpleReportForm() {
         setIsSuccess(false);
       }, 5000);
     } catch (err) {
+      console.error('Error submitting report request:', err);
       setError('Failed to send report. Please try again.');
     } finally {
       setIsSubmitting(false);
