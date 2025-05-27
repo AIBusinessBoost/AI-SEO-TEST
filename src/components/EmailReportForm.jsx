@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/EmailReportForm.css';
 
 export default function EmailReportForm() {
   const [firstName, setFirstName] = useState('');
@@ -50,21 +51,25 @@ export default function EmailReportForm() {
       <h2>Get Your Full Report</h2>
       <p>Enter your details to receive the complete audit with actionable recommendations:</p>
       
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name"
-          className="form-input"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="your@email.com"
-          className="form-input"
-        />
+      <form onSubmit={handleSubmit} className="report-form">
+        <div className="form-fields">
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First Name"
+            className="form-input"
+            required
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="your@email.com"
+            className="form-input"
+            required
+          />
+        </div>
         <button 
           type="submit" 
           className="report-button"

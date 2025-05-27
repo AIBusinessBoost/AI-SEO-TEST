@@ -187,7 +187,7 @@ export default function Home() {
               Get your free AI readiness assessment and discover how our solutions can help your business grow.
             </p>
             <div className="max-w-md mx-auto">
-              <form className="space-y-4">
+              <form className="space-y-4" id="report-form">
                 <div>
                   <input 
                     type="text" 
@@ -215,6 +215,11 @@ export default function Home() {
                   </button>
                 </div>
               </form>
+              <div id="form-status" className="mt-4 hidden">
+                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                  Thank you! Your report has been sent.
+                </div>
+              </div>
             </div>
           </div>
         </div>
