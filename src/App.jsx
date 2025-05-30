@@ -12,6 +12,7 @@ function App() {
   const [websiteScore, setWebsiteScore] = useState(0);
   const [potentialTraffic, setPotentialTraffic] = useState(0);
   const [competitorGap, setCompetitorGap] = useState(0);
+  const [originalEmail, setOriginalEmail] = useState('');
 
   // Add event listener to the form
   React.useEffect(() => {
@@ -40,6 +41,9 @@ function App() {
         lastName.value.trim() !== '' && 
         email.value.trim() !== '') {
       
+      // Store the original email for validation later
+      setOriginalEmail(email.value.trim());
+      
       // Generate random values for the metrics
       setWebsiteScore(Math.floor(Math.random() * 21) + 80); // 80-100
       setPotentialTraffic((Math.floor(Math.random() * 9000) + 1000).toLocaleString());
@@ -67,7 +71,8 @@ function App() {
         isVisible={showResults} 
         websiteScore={websiteScore} 
         potentialTraffic={potentialTraffic} 
-        competitorGap={competitorGap} 
+        competitorGap={competitorGap}
+        originalEmail={originalEmail}
       />
       <Benefits isVisible={showResults} />
       <Testimonials isVisible={showResults} />
