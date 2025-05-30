@@ -29,21 +29,33 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     
-    // Generate random values for the metrics
-    setWebsiteScore(Math.floor(Math.random() * 21) + 80); // 80-100
-    setPotentialTraffic((Math.floor(Math.random() * 9000) + 1000).toLocaleString());
-    setCompetitorGap(Math.floor(Math.random() * 41) + 10); // 10-50%
+    // Check if the expanded form fields exist and are filled
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+    const email = document.getElementById('email');
     
-    // Show the results sections
-    setShowResults(true);
-    
-    // Scroll to results
-    setTimeout(() => {
-      const resultsSection = document.getElementById('audit-results');
-      if (resultsSection) {
-        resultsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    // Only proceed with the full analysis if all expanded form fields are present and filled
+    if (firstName && lastName && email && 
+        firstName.value.trim() !== '' && 
+        lastName.value.trim() !== '' && 
+        email.value.trim() !== '') {
+      
+      // Generate random values for the metrics
+      setWebsiteScore(Math.floor(Math.random() * 21) + 80); // 80-100
+      setPotentialTraffic((Math.floor(Math.random() * 9000) + 1000).toLocaleString());
+      setCompetitorGap(Math.floor(Math.random() * 41) + 10); // 10-50%
+      
+      // Show the results sections
+      setShowResults(true);
+      
+      // Scroll to results
+      setTimeout(() => {
+        const resultsSection = document.getElementById('audit-results');
+        if (resultsSection) {
+          resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   return (
