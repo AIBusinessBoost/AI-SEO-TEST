@@ -1,72 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import React from 'react';
+import { FaBolt } from 'react-icons/fa';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <header className={`py-4 px-6 md:px-12 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-darker/90 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
-            <circle cx="16" cy="16" r="15" fill="#0B1120" stroke="#0BFFB7" strokeWidth="2"/>
-            <path d="M10 16.5L14 20.5L22 12.5" stroke="#0BFFB7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <nav>
+      <div className="container">
+        <a href="#" className="logo">
+          <svg className="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" fill="#232738" stroke="#0ce6e6" strokeWidth="4"/>
+            <ellipse cx="24" cy="24" rx="10" ry="16" fill="none" stroke="#0ce6e6" strokeWidth="3"/>
+            <circle cx="24" cy="24" r="5" fill="#ffd12a"/>
+            <rect x="22" y="4" width="4" height="8" rx="2" fill="#0ce6e6"/>
+            <rect x="22" y="36" width="4" height="8" rx="2" fill="#0ce6e6"/>
+            <rect x="4" y="22" width="8" height="4" rx="2" fill="#0ce6e6"/>
+            <rect x="36" y="22" width="8" height="4" rx="2" fill="#0ce6e6"/>
           </svg>
-          <span className="font-bold text-xl">AI Boost Business</span>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="text-white hover:text-primary transition-colors">Features</a>
-          <a href="#how-it-works" className="text-white hover:text-primary transition-colors">How It Works</a>
-          <a href="#pricing" className="text-white hover:text-primary transition-colors">Pricing</a>
-          <a href="#testimonials" className="text-white hover:text-primary transition-colors">Testimonials</a>
-          <a href="#faq" className="text-white hover:text-primary transition-colors">FAQ</a>
-          <button className="primary-button px-6 py-2 rounded-full">
-            Get Started
-          </button>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
+          <span>AI Boost Business</span>
+        </a>
+        <ul className="nav-links">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
       </div>
+    </nav>
+  );
+};
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-dark-blue p-6 shadow-lg z-50">
-          <div className="flex flex-col space-y-4">
-            <a href="#features" className="text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Features</a>
-            <a href="#how-it-works" className="text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>How It Works</a>
-            <a href="#pricing" className="text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Pricing</a>
-            <a href="#testimonials" className="text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Testimonials</a>
-            <a href="#faq" className="text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>FAQ</a>
-            <button className="primary-button px-6 py-2 rounded-full w-full mt-2" onClick={() => setIsMenuOpen(false)}>
-              Get Started
-            </button>
-          </div>
-        </div>
-      )}
-    </header>
-  )
-}
-
-export default Header
+export default Header;
