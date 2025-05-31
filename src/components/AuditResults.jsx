@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { FaChartLine, FaUsers, FaTrophy, FaTag } from 'react-icons/fa';
+import { FaChartLine, FaUsers, FaTrophy, FaTag, FaTimes } from 'react-icons/fa';
 
 const AuditResults = ({ isVisible, websiteScore, potentialTraffic, competitorGap, originalEmail }) => {
   const [email, setEmail] = useState('');
   const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
   const [emailError, setEmailError] = useState('');
+  const [showPaypalPopup, setShowPaypalPopup] = useState(false);
   
   const validateEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -32,6 +33,26 @@ const AuditResults = ({ isVisible, websiteScore, potentialTraffic, competitorGap
     
     setEmailError('');
     setIsEmailSubmitted(true);
+  };
+
+  const openPaypalPopup = () => {
+    setShowPaypalPopup(true);
+  };
+
+  const closePaypalPopup = () => {
+    setShowPaypalPopup(false);
+  };
+
+  const handlePaymentSuccess = () => {
+    // Store payment success in localStorage to maintain state across pages
+    localStorage.setItem('paymentCompleted', 'true');
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('websiteScore', websiteScore);
+    localStorage.setItem('potentialTraffic', potentialTraffic);
+    localStorage.setItem('competitorGap', competitorGap);
+    
+    // Redirect to full report page
+    window.location.href = '/full-report.html';
   };
   
   if (!isVisible) return null;
@@ -117,10 +138,8 @@ const AuditResults = ({ isVisible, websiteScore, potentialTraffic, competitorGap
               </form>
             ) : (
               <div style={{display: 'flex', flexDirection: 'column', gap: '15px', width: '100%'}}>
-                <a 
-                  href="https://paypal.me/sellorbuy/25" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <button 
+                  onClick={openPaypalPopup}
                   className="cta-button"
                   style={{
                     display: 'inline-block',
@@ -131,11 +150,13 @@ const AuditResults = ({ isVisible, websiteScore, potentialTraffic, competitorGap
                     fontWeight: 'bold',
                     padding: '12px 20px',
                     borderRadius: '4px',
-                    width: '100%'
+                    width: '100%',
+                    border: 'none',
+                    cursor: 'pointer'
                   }}
                 >
                   Get My Full Report ($25)
-                </a>
+                </button>
                 <p style={{fontSize: '0.85em', opacity: '0.7', textAlign: 'center', margin: '0'}}>
                   This special "first-time client" rate is available for a limited time only!
                 </p>
@@ -144,6 +165,154 @@ const AuditResults = ({ isVisible, websiteScore, potentialTraffic, competitorGap
           </div>
         </div>
       </div>
+
+      {/* PayPal Popup */}
+      {showPaypalPopup && (
+        <div className="paypal-popup-overlay" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000
+        }}>
+          <div className="paypal-popup" style={{
+            backgroundColor: '#1a1a2e',
+            borderRadius: '8px',
+            width: '90%',
+            maxWidth: '500px',
+            maxHeight: '90vh',
+            overflow: 'auto',
+            position: 'relative',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
+            border: '1px solid rgba(12, 230, 230, 0.3)'
+          }}>
+            <button 
+              onClick={closePaypalPopup}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                fontSize: '20px',
+                cursor: 'pointer',
+                zIndex: 1
+              }}
+            >
+              <FaTimes />
+            </button>
+            
+            <div style={{padding: '30px'}}>
+              <h3 style={{
+                textAlign: 'center', 
+                marginTop: '0', 
+                marginBottom: '20px',
+                color: '#fff',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                paddingBottom: '15px'
+              }}>
+                Complete Your Payment
+              </h3>
+              
+              <div style={{
+                backgroundColor: 'rgba(255, 209, 42, 0.1)',
+                padding: '15px',
+                borderRadius: '8px',
+                marginBottom: '20px'
+              }}>
+                <h4 style={{color: '#ffd12a', margin: '0 0 10px 0'}}>Order Summary</h4>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '10px',
+                  fontSize: '0.9em'
+                }}>
+                  <span>Premium SEO Analysis Report</span>
+                  <span>$25.00</span>
+                </div>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  fontWeight: 'bold',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                  paddingTop: '10px',
+                  marginTop: '10px'
+                }}>
+                  <span>Total</span>
+                  <span style={{color: '#0ce6e6'}}>$25.00</span>
+                </div>
+              </div>
+              
+              <p style={{textAlign: 'center', marginBottom: '20px', fontSize: '0.9em'}}>
+                Click the button below to complete your payment securely via PayPal.
+              </p>
+              
+              <div style={{textAlign: 'center'}}>
+                <a 
+                  href="https://paypal.me/sellorbuy/25" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="paypal-button"
+                  onClick={() => {
+                    // Open PayPal in a new window
+                    const paypalWindow = window.open("https://paypal.me/sellorbuy/25", "paypal", "width=450,height=600");
+                    
+                    // Check if window was successfully opened
+                    if (paypalWindow) {
+                      // Set up a timer to check if the PayPal window is closed
+                      const checkWindowClosed = setInterval(() => {
+                        if (paypalWindow.closed) {
+                          clearInterval(checkWindowClosed);
+                          
+                          // Ask user if payment was completed
+                          if (confirm("Did you complete your payment?")) {
+                            handlePaymentSuccess();
+                          }
+                        }
+                      }, 1000);
+                    }
+                    
+                    // Close the popup
+                    closePaypalPopup();
+                    
+                    // Prevent default link behavior
+                    return false;
+                  }}
+                  style={{
+                    display: 'inline-block',
+                    backgroundColor: '#0070ba',
+                    color: '#fff',
+                    padding: '12px 24px',
+                    borderRadius: '4px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s'
+                  }}
+                >
+                  Pay with PayPal
+                </a>
+              </div>
+              
+              <p style={{
+                fontSize: '0.8em', 
+                opacity: '0.7', 
+                textAlign: 'center',
+                marginTop: '20px'
+              }}>
+                Your payment is secure and processed via PayPal. You'll receive your full report immediately after payment.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
